@@ -1,0 +1,22 @@
+name: PHP Tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2' # Ganti dengan versi PHP yang Anda gunakan
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-dev --optimize-autoloader
+
+      - name: Run PHPUnit tests
+        run: ./vendor/bin/phpunit
