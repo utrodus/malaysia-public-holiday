@@ -32,15 +32,6 @@ It’s best for HR applications, attendance systems, logistics planning, calenda
 
 ---
 
-## 🛠️ Tech Stack
-
-| Tool                          | Purpose                         |
-|-------------------------------|----------------------------------|
-| **PHP >= 8.2**                | Core programming language        |
-| [Guzzle](https://github.com/guzzle/guzzle) | HTTP requests                   |
-| [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) | Web scraping (HTML crawling) |
-| [PHPUnit](https://phpunit.de/)            | Unit testing                    |
-| [GitHub Actions](https://github.com/features/actions) | Continuous integration         |
 
 ---
 
@@ -51,10 +42,23 @@ It’s best for HR applications, attendance systems, logistics planning, calenda
 
 ---
 
+## 🛠️ Tech Stack
+
+| Tool                          | Purpose                         |
+|-------------------------------|----------------------------------|
+| **PHP >= 8.2**                | Core programming language        |
+| [Guzzle](https://github.com/guzzle/guzzle) | HTTP requests                   |
+| [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) | Web scraping (HTML crawling) |
+| [PHPUnit](https://phpunit.de/)            | Unit testing                    |
+| [GitHub Actions](https://github.com/features/actions) | Continuous integration         |
+
+
+---
+
 ## 📦 Installation
 
 ```bash
-composer require your-vendor/malaysia-public-holiday
+composer require utrodus/malaysia-public-holiday
 ```
 
 ---
@@ -62,30 +66,46 @@ composer require your-vendor/malaysia-public-holiday
 ## ⚡ Usage
 
 ```php
-use MalaysiaPublicHoliday\MalaysiaPublicHoliday;
+<?php
 
-$holiday = new MalaysiaPublicHoliday();
+require_once __DIR__ . '/../vendor/autoload.php';
 
-// Get all holidays for all states in 2025
-$data = $holiday->fromAllState(2025)->get();
+use MalaysiaHoliday\MalaysiaHoliday;
 
-// Get holidays for Selangor only
-$data = $holiday->fromState('Selangor')->get();
+$holiday = new MalaysiaHoliday();
 
-// Group holidays by month
-$data = $holiday->fromState('Penang')->groupByMonth()->get();
+// Get holidays for all states in the current year
+$result = $holiday->fromAllState()->get();
 
-// Filter only holidays in March
-$data = $holiday->fromState('Kuala Lumpur')->filterByMonth(3)->get();
+header('Content-Type: application/json');
+echo json_encode($result, JSON_PRETTY_PRINT);
 ```
+<br>
 
+> I have included code examples to try this library in each file within the examples folder. Please see below:
+
+
+| Use Case                                            | Example File                                                                | Description                                                                 |
+|-----------------------------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| Get holidays for a specific state                   | [`examples/get_holidays_for_specific_state.php`](examples/get_holidays_for_specific_state.php) | Retrieves holidays for a particular state in the current year.              |
+| Get holidays for a specific state and year          | [`examples/get_holidays_for_specific_state_and_year.php`](examples/get_holidays_for_specific_state_and_year.php) | Fetches holidays for a state in a specific year.                            |
+| Get holidays for all states                         | [`examples/get_holidays_for_all_states.php`](examples/get_holidays_for_all_states.php)         | Retrieves holidays for all Malaysian states in the current year.           |
+| Get holidays for all states and a specific year    | [`examples/get_holidays_for_all_states_and_year.php`](examples/get_holidays_for_all_states_and_year.php) | Fetches holidays for all states in a given year.                          |
+| Filter holidays by month                            | [`examples/get_holidays_for_state_filtered_by_month.php`](examples/get_holidays_for_state_filtered_by_month.php) | Filters holidays for a state in a specific month.                         |
+| Group holidays by month                             | [`examples/get_holidays_for_state_grouped_by_month.php`](examples/get_holidays_for_state_grouped_by_month.php) | Groups holidays for a state by month.                                     |
+| Handling invalid regions                            | [`examples/handling_invalid_region.php`](examples/handling_invalid_region.php)                 | Demonstrates how the library handles invalid region inputs.                 |
+| Using alternative region names                      | [`examples/using_alternative_region_name.php`](examples/using_alternative_region_name.php)     | Shows support for alias state names.                                      |
+
+---
 ---
 
 ## 🧪 Running Tests
 
 ```bash
-./vendor/bin/phpunit
+vendor/bin/phpunit tests
 ```
+
+
 
 ---
 
