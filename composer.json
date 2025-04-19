@@ -2,6 +2,9 @@
     "name": "utrodus/malaysia-public-holiday",
     "description": "A PHP library to crawl Malaysia public holidays with filtering and caching.",
     "type": "library",
+    "keywords": ["malaysia", "public holiday", "holiday", "php", "crawler", "crawl"],
+    "minimum-stability": "stable",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "MalaysiaHoliday\\": "src/"
