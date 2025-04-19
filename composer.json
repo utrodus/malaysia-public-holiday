@@ -21,6 +21,9 @@
             "email": "contact.utrodus@gmail.com"
         }
     ],
+     "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
     "require": {
         "php": ">=8.2",
         "symfony/browser-kit": "^7.2",

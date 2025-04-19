@@ -27,11 +27,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
 
-      - name: Remove Composer Cache (if exists)
-        run: rm -rf ${{ steps.composer-cache.outputs.dir }}
-
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-dev --optimize-autoloader
 
-      - name: Run PHPUnit tests
-        run: php vendor/bin/phpunit
+      - name: Run test suite
+        run: composer run-script test
