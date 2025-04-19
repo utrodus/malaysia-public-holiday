@@ -30,5 +30,8 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-dev --optimize-autoloader
 
+      - name: List vendor directory contents
+        run: ls -al vendor/bin
+
       - name: Run PHPUnit tests
         run: php vendor/bin/phpunit
