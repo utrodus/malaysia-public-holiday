@@ -1,8 +1,6 @@
 
 # 🇲🇾 Malaysia Public Holiday
 ![PHP Version](https://img.shields.io/badge/PHP-%3E%3D8.2-blue)
-![License](https://img.shields.io/github/license/utrodus/malaysia-public-holiday)
-![Build](https://img.shields.io/github/actions/workflow/status/utrodus/malaysia-public-holiday/tests.yml)
 
 
 **Malaysia Public Holiday** is a PHP library to fetch **official public holiday data** for all Malaysian states by scraping [Office Holidays](https://www.officeholidays.com/countries/malaysia).  
