@@ -65,6 +65,13 @@ class MalaysiaHoliday
         return $this;
     }
 
+    
+    /**
+     * The function retrieves holiday data based on specified regions and years, handling errors and
+     * providing developer information.
+     * 
+     * @return array The `get()` function returns an array containing the following keys and values:
+     */
     public function get(): array
     {
         $regions = is_array($this->region) ? $this->region : ($this->region === null ? [null] : [$this->region]);
@@ -127,5 +134,52 @@ class MalaysiaHoliday
         }
 
         return $resultData;
+    }
+
+
+    /**
+     * Get formatted holiday data for easier reading and access.
+     * @param array $response
+     * @return string
+     */
+    function formatHolidayData(array $response): string
+    {
+        $formatted = [];
+
+        if (!isset($response['data']) || !is_array($response['data'])) {
+            return json_encode(['error' => 'Invalid data structure'], JSON_PRETTY_PRINT);
+        }
+
+        foreach ($response['data'] as $regionData) {
+            $regional = $regionData['regional'] ?? 'Unknown Region';
+            $collections = $regionData['collection'] ?? [];
+
+            foreach ($collections as $collection) {
+                $year = $collection['year'] ?? 'Unknown Year';
+                $holidays = $collection['data'] ?? [];
+
+
+                foreach ($holidays as $holiday) {
+                    $formatted[] = [
+                        'date' => $holiday['date'] ?? '',
+                        'day' => $holiday['day'] ?? '',
+                        'date_formatted' => $holiday['date_formatted'] ?? '',
+                        'month' => $holiday['month'] ?? '',
+                        'name' => $holiday['name'] ?? '',
+                        'description' => $holiday['description'] ?? '',
+                        'is_holiday' => !empty($holiday['is_holiday']),
+                        'type' => $holiday['type'] ?? '',
+                        'type_id' => $holiday['type_id'] ?? null,
+                    ];
+                }
+            }
+        }
+        $results[] = [
+            'year' => "$year",
+            'region' => $regional,
+            'data' => $formatted,
+        ];
+
+        return json_encode($results, JSON_PRETTY_PRINT);
     }
 }
