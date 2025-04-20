@@ -80,7 +80,7 @@ echo json_encode($result, JSON_PRETTY_PRINT) . PHP_EOL;
 
 /**
  *  Get formatted holiday data 
- *  with formatHoildayData method you can easier read and access
+ *  with formatHolidayData method you can easier read and access
  *  */
 echo "------------------------------------------------" . PHP_EOL;
 echo "Formatted Holiday Data:" . PHP_EOL;
