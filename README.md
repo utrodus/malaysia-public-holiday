@@ -68,8 +68,6 @@ composer require utrodus/malaysia-public-holiday
 ```php
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use MalaysiaHoliday\MalaysiaHoliday;
 
 $holiday = new MalaysiaHoliday();
@@ -77,9 +75,21 @@ $holiday = new MalaysiaHoliday();
 // Get holidays for all states in the current year
 $result = $holiday->fromAllState()->get();
 
+
 header('Content-Type: application/json');
-echo json_encode($result, JSON_PRETTY_PRINT);
+echo json_encode($result, JSON_PRETTY_PRINT) . PHP_EOL;
+
+/**
+ *  Get formatted holiday data 
+ *  with formatHoildayData method you can easier read and access
+ *  */
+echo "------------------------------------------------" . PHP_EOL;
+echo "Formatted Holiday Data:" . PHP_EOL;
+$formatted = $holiday->formatHolidayData($result);
+echo $formatted . PHP_EOL;
+
 ```
+
 <br>
 
 > I have included code examples to try this library in each file within the examples folder. Please see below:
