@@ -36,7 +36,7 @@ It’s best for HR applications, attendance systems, logistics planning, calenda
 
 ## 🚀 Requirements
 
-- PHP >= **8.3**
+- PHP >= **8.1**
 - Composer
 
 ---
