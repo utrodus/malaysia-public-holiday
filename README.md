@@ -45,7 +45,7 @@ It’s best for HR applications, attendance systems, logistics planning, calenda
 
 | Tool                          | Purpose                         |
 |-------------------------------|----------------------------------|
-| **PHP >= 8.2**                | Core programming language        |
+| **PHP >= 8.1**                | Core programming language        |
 | [Guzzle](https://github.com/guzzle/guzzle) | HTTP requests                   |
 | [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) | Web scraping (HTML crawling) |
 | [PHPUnit](https://phpunit.de/)            | Unit testing                    |
