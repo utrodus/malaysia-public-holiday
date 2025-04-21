@@ -1,6 +1,6 @@
 
 # 🇲🇾 Malaysia Public Holiday
-![PHP Version](https://img.shields.io/badge/PHP-%3E%3D8.1-blue)
+![PHP Version](https://img.shields.io/badge/PHP-%3E%3D8.2-blue)
 [![Build Status](https://github.com/utrodus/malaysia-public-holiday/actions/workflows/tests.yaml/badge.svg?label=Build+Status)](https://github.com/utrodus/malaysia-public-holiday/actions/workflows/tests.yaml)
 [![Packagist Stable Version](https://img.shields.io/packagist/v/utrodus/malaysia-public-holiday.svg)](https://packagist.org/packages/utrodus/malaysia-public-holiday)
 
@@ -36,7 +36,7 @@ It’s best for HR applications, attendance systems, logistics planning, calenda
 
 ## 🚀 Requirements
 
-- PHP >= **8.1**
+- PHP >= **8.2**
 - Composer
 
 ---
@@ -45,7 +45,7 @@ It’s best for HR applications, attendance systems, logistics planning, calenda
 
 | Tool                          | Purpose                         |
 |-------------------------------|----------------------------------|
-| **PHP >= 8.1**                | Core programming language        |
+| **PHP >= 8.2**                | Core programming language        |
 | [Guzzle](https://github.com/guzzle/guzzle) | HTTP requests                   |
 | [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) | Web scraping (HTML crawling) |
 | [PHPUnit](https://phpunit.de/)            | Unit testing                    |
